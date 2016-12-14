@@ -1,4 +1,3 @@
-var key = require('../utils/key');
 var sync = require('synchronize');
 var request = require('request');
 var _ = require('underscore');
@@ -20,9 +19,6 @@ module.exports = function(req, res) {
   try {
     response = sync.await(request({
       url: 'https://api.stackexchange.com/2.2/answers/' + encodeURIComponent(id) + '?site=stackoverflow&filter=!-*f(6t0WW)1e', // Filter from https://api.stackexchange.com/docs/answers-by-ids
-      qs: {
-        api_key: key
-      },
       gzip: true,
       json: true,
       timeout: 15 * 1000
